@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="showBox = !showBox">Göster/Gizle</button>
+        <p v-if="!showBox">Gözükecek</p>
+        <!-- <p v-else-if="showBox">Buton yardımı ile gözükecek</p> -->
+        <p v-else>Aksi halde gözükecek</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                showBox: false
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Binding</title>
+    <title>Reactive Properties</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
         <input type="text" v-model="age">
-        <p>{{ age >= 18 ? 'Reşittir' : 'Değildir' }}</p>
-        <p>{{ ageWriter() }}</p>
+        <p>Javascript: {{ age >= 18 ? 'Reşittir' : 'Değildir' }}</p>
+        <p>Method: {{ ageWriter() }}</p>
+        <p>Computed: {{ ageWriterComp }}</p>
         <hr>
         <p> {{ sayi }}</p>
         <button @click="sayi++">Arttır</button>
@@ -25,7 +26,19 @@
             },
             methods: {
                 ageWriter(){
+                    console.log("çalıştı");
                     return this.age >= 18 ? 'Reşittir' : 'Değildir';
+                }
+            },
+            computed: {
+                ageWriterComp(){
+                    console.log("computed çalıştı");
+                    return this.age >= 18 ? 'Reşittir' : 'Değildir';
+                }
+            },
+            watch: {
+                age(newValue, oldValue){
+                    console.log(newValue, oldValue);
                 }
             }
         });
